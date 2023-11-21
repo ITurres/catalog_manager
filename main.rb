@@ -1,4 +1,5 @@
 require_relative 'app'
+
 OPTIONS = {
   1 => { 'List all books' => :list_all_books },
   2 => { 'List all music albums' => :list_all_music_albums },
@@ -16,10 +17,8 @@ class Main
   def initialize
     @mainmenu = self
   end
-  # TODO: implement App class
   app = App.new
 
-  # TODO: implement startup actions for user to chooese options
   def display_menu
     puts "\nPlease choose an option:"
     OPTIONS.each { |key, value| puts "#{key} - #{value.to_s.tr('_', ' ')}" }
