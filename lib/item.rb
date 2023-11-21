@@ -30,8 +30,9 @@ class Item
   end
 
   def can_be_archived?
+    archive_year_days = 3650 # 10 years in days
     published_date = Date.parse(@publish_date)
-    (Date.today - published_date).to_i > 3650 # 10 years in days
+    (Date.today - published_date).to_i > archive_year_days
   end
 
   def move_to_archive
