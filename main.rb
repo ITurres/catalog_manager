@@ -1,4 +1,4 @@
-require_relative 'app'
+require_relative 'lib/app'
 
 OPTIONS = {
   1 => { 'List all books' => :list_all_books },
@@ -16,8 +16,9 @@ OPTIONS = {
 class Main
   def initialize
     @mainmenu = self
+    # TODO: Implement the App class
+    @app = App.new
   end
-  app = App.new
 
   def display_menu
     puts "\nPlease choose an option:"
