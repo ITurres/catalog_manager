@@ -22,7 +22,8 @@ class Game < Item
 
     two_years_in_days = 365 * 2 # ! 2 years in days - not counting leap years and/or 365.25 days per year (average)
     last_played_at_date_year = Date.parse(@last_played_at).year
+    current_year = Date.today.year
 
-    (Date.today - last_played_at_date_year) > two_years_in_days
+    (current_year - last_played_at_date_year) > two_years_in_days
   end
 end
