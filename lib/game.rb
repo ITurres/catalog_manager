@@ -4,19 +4,19 @@ require_relative 'item'
 class Game < Item
   attr_reader :multiplayer, :last_played_at
 
-  def initialize(item, published_date: nil,
+  def initialize(item, publish_date: nil,
                  last_played_at: nil,
                  multiplayer: false)
 
-    super(item.genre, item.author, item.label, published_date)
+    super(item.genre, item.author, item.label, publish_date)
     @last_played_at = last_played_at
     @multiplayer = multiplayer
   end
 
-  private
+  privated
 
   def can_be_archived?
-    return false unless super
+    return false unless super # * true when publish_date is older than 10 years.
 
     return false if @last_played_at.nil? || @last_played_at !~ /\d{4}-\d{2}-\d{2}/
 
