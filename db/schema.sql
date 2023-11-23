@@ -4,16 +4,33 @@ CREATE DATABASE catalog_manager;
 --!=>
 -- ? Author Table here
 --!=>
--- ? Label Table here
+CREATE TABLE 
+    label (
+        id UUID PRIMARY KEY,
+        title VARCHAR(200),
+        color VARCHAR(100)
+    );
 --!=>
--- ? Book Table here
+CREATE TABLE
+    book (
+        id UUID PRIMARY KEY,
+        title VARCHAR(200),
+        genre_id INT NOT NULL REFERENCES genre (id),
+        author_id INT NOT NULL REFERENCES author (id),
+        label_id INT NOT NULL REFERENCES label (id),
+        publish_date DATE,
+        archived BOOLEAN NOT NULL DEFAULT FALSE,
+        publisher VARCHAR(200),
+        cover_state VARCHAR(10)
+    );
 --!=>
 -- ? MusicAlbum Table here
 --!=>
 -- *
 CREATE TABLE
     game (
-        id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+        id UUID PRIMARY KEY,
+        title VARCHAR(200),
         genre_id INT NOT NULL REFERENCES genre (id),
         author_id INT NOT NULL REFERENCES author (id),
         label_id INT NOT NULL REFERENCES label (id),

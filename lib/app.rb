@@ -2,12 +2,15 @@ require_relative 'game'
 require_relative 'genre'
 require_relative 'author'
 require_relative 'label'
+require_relative 'book'
 
 require_relative '../modules/json_data_manager'
 
 require_relative '../helpers/get_basic_inputs'
 
 GAMES_JSON_FILE_PATH = 'db/data/games.json'.freeze
+BOOKS_JSON_FILE_PATH = 'db/data/books.json'.freeze
+JSON_FILES = Dir.glob('db/data/*.json').freeze
 
 class App
   include JSONDataManager
@@ -19,7 +22,14 @@ class App
   # TODO: }
 
   def list_all_books
-    # TODO: LISTING
+    p 'No books found!' if load_from_json(BOOKS_JSON_FILE_PATH).empty?
+
+    p '--------------'
+    p 'List of books:'
+    p '--------------'
+    load_from_json(BOOKS_JSON_FILE_PATH).each do |book|
+      p "Title: #{book['title']} - Genre: #{book['genre']} - Author: #{book['author']}"
+    end
   end
 
   def list_all_music_albums
@@ -42,7 +52,11 @@ class App
   end
 
   def list_all_labels
-    # TODO: LISTING
+    p '--------------'
+    p 'List of labels:'
+    p '--------------'
+    labels = get_data_by_attribute(JSON_FILES, 'label')
+    labels.each { |label| puts label }
   end
 
   def list_all_authors
@@ -57,7 +71,20 @@ class App
   # TODO: }
 
   def add_a_book
-    # TODO: ADDING
+    user_inputs = get_basic_inputs('Book')
+    p 'Enter the publisher name : '
+    publisher = gets.chomp
+    p 'Enter the cover status : good/bad '
+    cover_state = gets.chomp
+    genre = Genre.new(user_inputs['genre_name'])
+    author = Author.new(user_inputs['author_name'])
+    label = Label.new(user_inputs['label_title'], user_inputs['label_color'])
+    book = Book.new(title: user_inputs['title'], publish_date: user_inputs['publish_date'],
+                    publisher: publisher, cover_state: cover_state)
+    book.add_genre(genre)
+    book.add_author(author)
+    book.add_label(label)
+    save_to_json(BOOKS_JSON_FILE_PATH, book.to_h)
   end
 
   def add_a_music_album
