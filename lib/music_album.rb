@@ -1,16 +1,28 @@
 require_relative 'item'
 
 class MusicAlbum < Item
-  attr_reader :artist, :number_of_tracks
+  def initialize(title: nil, publish_date: nil, on_spotify: false)
+    super(publish_date)
 
-  def initialize(item, publish_date: nil, on_spotify: false)
-    super(item.genre, item.author, item.label, publish_date)
+    @title = title
+    @publish_date = publish_date
     @on_spotify = on_spotify
   end
 
-  def can_be_archived?
-    return true if super && @on_spotify
+  def to_h
+    {
+      'id' => @id,
+      'title' => @title,
+      'genre' => @genre&.name,
+      'author' => @author&.name,
+      'label' => @label&.title,
+      'publish_date' => @publish_date,
+      'on_spotify' => @on_spotify,
+      'archived' => @archived
+    }
+  end
 
-    false
+  def can_be_archived?
+    super && @on_spotify
   end
 end
