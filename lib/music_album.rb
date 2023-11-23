@@ -17,6 +17,7 @@ class MusicAlbum < Item
       'author' => @author&.name,
       'label' => @label&.title,
       'publish_date' => @publish_date,
+      'on_spotify' => @on_spotify,
       'archived' => @archived
     }
   end
