@@ -4,16 +4,34 @@ require_relative 'item'
 class Game < Item
   attr_reader :multiplayer, :last_played_at
 
-  def initialize(item, publish_date: nil,
+  def initialize(title: 'Unknown Title',
+                 publish_date: nil,
                  last_played_at: nil,
                  multiplayer: false)
 
-    super(item.genre, item.author, item.label, publish_date)
+    super(publish_date)
+
+    @title = title
+    @publish_date = publish_date
     @last_played_at = last_played_at
     @multiplayer = multiplayer
   end
 
-  privated
+  def to_h
+    {
+      'id' => @id,
+      'title' => @title,
+      'genre' => @genre&.name,
+      'author' => @author&.name,
+      'label' => @label&.title,
+      'published_date' => @publish_date,
+      'last_played_at' => @last_played_at,
+      'multiplayer' => @multiplayer,
+      'archived' => @archived
+    }
+  end
+
+  private
 
   def can_be_archived?
     return false unless super # * true when publish_date is older than 10 years.
