@@ -38,10 +38,10 @@ class Game < Item
 
     return false if @last_played_at.nil? || @last_played_at !~ /\d{4}-\d{2}-\d{2}/
 
-    two_years_in_days = 365 * 2 # ! 2 years in days - not counting leap years and/or 365.25 days per year (average)
+    archive_years_constraint = 2
     last_played_at_date_year = Date.parse(@last_played_at).year
     current_year = Date.today.year
 
-    (current_year - last_played_at_date_year) > two_years_in_days
+    (current_year - last_played_at_date_year) > archive_years_constraint
   end
 end
