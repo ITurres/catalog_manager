@@ -3,6 +3,7 @@ require_relative 'genre'
 require_relative 'author'
 require_relative 'label'
 require_relative 'book'
+require_relative 'music_album'
 
 require_relative '../modules/json_data_manager'
 
@@ -10,19 +11,17 @@ require_relative '../helpers/get_basic_inputs'
 
 GAMES_JSON_FILE_PATH = 'db/data/games.json'.freeze
 BOOKS_JSON_FILE_PATH = 'db/data/books.json'.freeze
+MUSIC_ALBUMS_JSON_FILE_PATH = 'db/data/music_albums.json'.freeze
 JSON_FILES = Dir.glob('db/data/*.json').freeze
 
 class App
   include JSONDataManager
 
-  # ! REMOVE THIS COMMENTS ONCE ALL THE METHODS ARE IMPLEMENTED.
-  # TODO: LISTING {
-  # TODO: for all 'listing' methods, 1st implement the class to be intantiated.
-  # TODO: then instantiate the class and invoke the method to list all instances
-  # TODO: }
-
   def list_all_books
-    p 'No books found!' if load_from_json(BOOKS_JSON_FILE_PATH).empty?
+    if load_from_json(BOOKS_JSON_FILE_PATH).empty?
+      p 'No books found!'
+      return
+    end
 
     p '--------------'
     p 'List of books:'
@@ -33,11 +32,24 @@ class App
   end
 
   def list_all_music_albums
-    # TODO: LISTING
+    if load_from_json(MUSIC_ALBUMS_JSON_FILE_PATH).empty?
+      p 'No music albums found!'
+      return
+    end
+
+    p '-------------------'
+    p 'List of music albums:'
+    p '-------------------'
+    load_from_json(MUSIC_ALBUMS_JSON_FILE_PATH).each do |music_album|
+      p "Title: #{music_album['title']} - Genre: #{music_album['genre']} - Author: #{music_album['author']}"
+    end
   end
 
   def list_of_games
-    p 'No games found!' if load_from_json(GAMES_JSON_FILE_PATH).empty?
+    if load_from_json(GAMES_JSON_FILE_PATH).empty?
+      p 'No games found!'
+      return
+    end
 
     p '--------------'
     p 'List of games:'
@@ -48,7 +60,11 @@ class App
   end
 
   def list_all_genres
-    # TODO: LISTING
+    p '--------------'
+    p 'List of genres:'
+    p '--------------'
+    genres = get_data_by_attribute(JSON_FILES, 'genre')
+    genres.each { |genre| puts genre }
   end
 
   def list_all_labels
@@ -66,13 +82,6 @@ class App
     authors = get_data_by_attribute(JSON_FILES, 'author')
     authors.each { |author| puts author }
   end
-
-  # TODO: ADDING {
-  # TODO: for all 'adding' methods, 1st implement the class to be intantiated.
-  # TODO: then instantiate the class and invoke the method to add a new instance of that class
-  # ! TODO: IMPORTANT: all the user inputs should be validated in the class itself, not here.
-  # TODO: print the user input to confirm the new instance was added.
-  # TODO: }
 
   def add_a_book
     user_inputs = get_basic_inputs('Book')
@@ -92,7 +101,27 @@ class App
   end
 
   def add_a_music_album
-    # TODO: ADDING
+    user_inputs = get_basic_inputs('Music Album')
+
+    p 'Is the Album on Spotify? (true/false)'
+    on_spotify = gets.chomp == 'true'
+
+    genre = Genre.new(user_inputs['genre_name'])
+    author = Author.new(user_inputs['author_name'])
+    label = Label.new(user_inputs['label_title'], user_inputs['label_color'])
+
+    music_album = MusicAlbum.new(title: user_inputs['title'], publish_date: user_inputs['publish_date'],
+                                 on_spotify: on_spotify)
+
+    music_album.add_genre(genre)
+    music_album.add_author(author)
+    music_album.add_label(label)
+
+    save_to_json(MUSIC_ALBUMS_JSON_FILE_PATH, music_album.to_h)
+
+    p
+    p 'Music Album added successfully!'
+    p
   end
 
   def add_a_game
