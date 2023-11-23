@@ -60,7 +60,11 @@ class App
   end
 
   def list_all_authors
-    # TODO: LISTING
+    p '--------------'
+    p 'List of authors:'
+    p '--------------'
+    authors = get_data_by_attribute(JSON_FILES, 'author')
+    authors.each { |author| puts author }
   end
 
   # TODO: ADDING {
