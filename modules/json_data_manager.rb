@@ -32,7 +32,7 @@ module JSONDataManager
     # * return to be iterated over for the UI.
     parsed_data
   end
-  
+
   def read_json_file(file_path)
     load_from_json(file_path)
   end
@@ -40,10 +40,10 @@ module JSONDataManager
   def get_labels_and_titles(files)
     labels = Set.new
     titles_by_label = Hash.new { |hash, key| hash[key] = [] }
-  
+
     files.each do |file|
       data = read_json_file(file)
-  
+
       data.each do |item|
         labels << item['label']
         titles_by_label[item['label']] << item['title']
@@ -51,11 +51,8 @@ module JSONDataManager
     end
     [labels.to_a, titles_by_label]
   end
-  
+
   def display_labels_and_titles(labels, titles_by_label)
-    puts "Diplaying Labels..."
-    puts labels
-    puts titles_by_label
     labels.each do |label|
       titles = titles_by_label[label]
       puts "Label: #{label}"
