@@ -21,7 +21,14 @@ class App
   # TODO: }
 
   def list_all_books
-    # TODO: LISTING
+    p 'No books found!' if load_from_json(BOOKS_JSON_FILE_PATH).empty?
+
+    p '--------------'
+    p 'List of books:'
+    p '--------------'
+    load_from_json(BOOKS_JSON_FILE_PATH).each do |book|
+      p "Title: #{book['title']} - Genre: #{book['genre']} - Author: #{book['author']}"
+    end
   end
 
   def list_all_music_albums
