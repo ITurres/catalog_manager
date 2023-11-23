@@ -1,4 +1,5 @@
 require 'json'
+require 'set'
 
 module JSONDataManager
   def save_to_json(file_path, new_data)
@@ -47,6 +48,7 @@ module JSONDataManager
         values << item[attribute]
       end
     end
+
     values.to_a
   end
 end
