@@ -4,7 +4,12 @@ CREATE TABLE
     genre (id UUID PRIMARY KEY, name VARCHAR(50));
 
 --!=>
--- ? Author Table here
+CREATE TABLE
+    author (
+        id UUID PRIMARY KEY,
+        first_name VARCHAR(150),
+        last_name VARCHAR(150)
+    )
 --!=>
 CREATE TABLE
     label (
