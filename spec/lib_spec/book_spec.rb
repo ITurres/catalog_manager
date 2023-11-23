@@ -62,8 +62,6 @@ RSpec.describe Book do
         cover_state: 'bad'
       )
 
-      allow(book).to receive(:super).and_return(false)
-
       expect(book.can_be_archived?).to be true
     end
   end
