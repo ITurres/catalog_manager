@@ -30,6 +30,7 @@ CREATE TABLE
 CREATE TABLE
     game (
         id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+        title VARCHAR(200),
         genre_id INT NOT NULL REFERENCES genre (id),
         author_id INT NOT NULL REFERENCES author (id),
         label_id INT NOT NULL REFERENCES label (id),
