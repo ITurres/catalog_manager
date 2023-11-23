@@ -10,6 +10,7 @@ require_relative '../helpers/get_basic_inputs'
 
 GAMES_JSON_FILE_PATH = 'db/data/games.json'.freeze
 BOOKS_JSON_FILE_PATH = 'db/data/books.json'.freeze
+JSON_FILES = Dir.glob('db/data/*.json').freeze
 
 class App
   include JSONDataManager
@@ -51,7 +52,11 @@ class App
   end
 
   def list_all_labels
-    # TODO: LISTING
+    p '--------------'
+    p 'List of labels:'
+    p '--------------'
+    labels, titles_by_label = get_labels_and_titles(JSON_FILES)
+    display_labels_and_titles(labels, titles_by_label)
   end
 
   def list_all_authors
