@@ -3,6 +3,7 @@ require_relative '../../lib/book'
 require_relative '../../helpers/generate_id'
 
 RSpec.describe Book do
+  subject(:solver) { Book }
   let(:title) { 'The Great Gatsby' }
   let(:publish_date) { '1925-04-10' }
   let(:publisher) { 'Scribner' }
@@ -14,7 +15,7 @@ RSpec.describe Book do
 
   describe '#initialize' do
     it 'creates a Book instance with the specified attributes' do
-      book = Book.new(
+      book = subject.new(
         title: title,
         publish_date: publish_date,
         publisher: publisher,
@@ -30,7 +31,7 @@ RSpec.describe Book do
 
   describe '#to_h' do
     it 'returns a hash representation of the Book' do
-      book = Book.new(
+      book = subject.new(
         title: title,
         publish_date: publish_date,
         publisher: publisher,
@@ -53,16 +54,16 @@ RSpec.describe Book do
     end
   end
 
-  describe '#can_be_archived?' do
+  describe '#move_to_archive?' do
     it 'returns true if the cover state is bad' do
-      book = Book.new(
+      book = subject.new(
         title: title,
         publish_date: publish_date,
         publisher: publisher,
         cover_state: 'bad'
       )
 
-      expect(book.can_be_archived?).to be true
+      expect(book.move_to_archive).to be true
     end
   end
 end
