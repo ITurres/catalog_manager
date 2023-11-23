@@ -37,27 +37,32 @@ module JSONDataManager
     load_from_json(file_path)
   end
 
-  def get_labels_and_titles(files)
-    labels = Set.new
-    titles_by_label = Hash.new { |hash, key| hash[key] = [] }
+  def get_data_by_attribute(files, attribute)
+    values = Set.new
+    data_by_attribute = Hash.new { |hash, key| hash[key] = [] }
 
     files.each do |file|
       data = read_json_file(file)
-
       data.each do |item|
-        labels << item['label']
-        titles_by_label[item['label']] << item['title']
+        values << item[attribute]
+        data_by_attribute[item[attribute]] << item['title']
       end
     end
-    [labels.to_a, titles_by_label]
+    [values.to_a, data_by_attribute]
   end
 
-  def display_labels_and_titles(labels, titles_by_label)
-    labels.each do |label|
-      titles = titles_by_label[label]
-      puts "Label: #{label}"
-      puts "Titles: #{titles.join(', ')}" unless titles.empty?
-      puts "\n"
+  def display_data_by_attribute(attribute, values, data_by_attribute)
+    values.each do |value|
+      titles = data_by_attribute[value]
+      display_attribute_and_titles(attribute, value, titles)
     end
+  end
+
+  private
+
+  def display_attribute_and_titles(attribute, value, titles)
+    puts "#{attribute.capitalize}: #{value}"
+    puts "Titles: #{titles.join(', ')}" unless titles.empty?
+    puts "\n"
   end
 end
