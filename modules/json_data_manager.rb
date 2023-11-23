@@ -39,30 +39,14 @@ module JSONDataManager
 
   def get_data_by_attribute(files, attribute)
     values = Set.new
-    data_by_attribute = Hash.new { |hash, key| hash[key] = [] }
 
     files.each do |file|
       data = read_json_file(file)
+
       data.each do |item|
         values << item[attribute]
-        data_by_attribute[item[attribute]] << item['title']
       end
     end
-    [values.to_a, data_by_attribute]
-  end
-
-  def display_data_by_attribute(attribute, values, data_by_attribute)
-    values.each do |value|
-      titles = data_by_attribute[value]
-      display_attribute_and_titles(attribute, value, titles)
-    end
-  end
-
-  private
-
-  def display_attribute_and_titles(attribute, value, titles)
-    puts "#{attribute.capitalize}: #{value}"
-    puts "Titles: #{titles.join(', ')}" unless titles.empty?
-    puts "\n"
+    values.to_a
   end
 end

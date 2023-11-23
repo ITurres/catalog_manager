@@ -55,8 +55,8 @@ class App
     p '--------------'
     p 'List of labels:'
     p '--------------'
-    labels, titles_by_label = get_data_by_attribute(JSON_FILES, 'label')
-    display_data_by_attribute('Label', labels, titles_by_label)
+    labels = get_data_by_attribute(JSON_FILES, 'label')
+    labels.each { |label| puts label }
   end
 
   def list_all_authors
