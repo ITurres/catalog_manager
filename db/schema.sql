@@ -4,7 +4,12 @@ CREATE TABLE
     genre (id UUID PRIMARY KEY, name VARCHAR(50));
 
 --!=>
--- ? Author Table here
+CREATE TABLE
+    author (
+        id UUID PRIMARY KEY,
+        first_name VARCHAR(150),
+        last_name VARCHAR(150)
+    )
 --!=>
 CREATE TABLE
     label (
@@ -18,9 +23,9 @@ CREATE TABLE
     book (
         id UUID PRIMARY KEY,
         title VARCHAR(200),
-        genre_id INT NOT NULL REFERENCES genre (id),
-        author_id INT NOT NULL REFERENCES author (id),
-        label_id INT NOT NULL REFERENCES label (id),
+        genre_id UUID NOT NULL REFERENCES genre (id),
+        author_id UUID NOT NULL REFERENCES author (id),
+        label_id UUID NOT NULL REFERENCES label (id),
         publish_date DATE DEFAULT NULL,
         archived BOOLEAN NOT NULL DEFAULT FALSE,
         publisher VARCHAR(200),
