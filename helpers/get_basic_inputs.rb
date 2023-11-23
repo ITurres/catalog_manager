@@ -13,12 +13,12 @@ def get_basic_inputs(type)
   publish_date = gets_publish_date
 
   {
-    title: title,
-    genre_name: genre_name,
-    author_name: author_name,
-    label_title: label_title,
-    label_color: label_color,
-    publish_date: publish_date
+    'title' => title,
+    'genre_name' => genre_name,
+    'author_name' => author_name,
+    'label_title' => label_title,
+    'label_color' => label_color,
+    'publish_date' => publish_date
   }
 end
 

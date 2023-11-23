@@ -32,4 +32,21 @@ module JSONDataManager
     # * return to be iterated over for the UI.
     parsed_data
   end
+
+  def read_json_file(file_path)
+    load_from_json(file_path)
+  end
+
+  def get_data_by_attribute(files, attribute)
+    values = Set.new
+
+    files.each do |file|
+      data = read_json_file(file)
+
+      data.each do |item|
+        values << item[attribute]
+      end
+    end
+    values.to_a
+  end
 end
