@@ -29,15 +29,19 @@ class Item
     label.add_item(self)
   end
 
-  def can_be_archived?
-    archive_year_days = 3650 # 10 years in days
-    published_date = Date.parse(@publish_date)
-    (Date.today - published_date).to_i > archive_year_days
-  end
-
   def move_to_archive
-    return unless can_be_archived?
+    return false unless can_be_archived?
 
     @archived = true
+  end
+
+  private
+
+  def can_be_archived?
+    archive_years_constraint = 10
+    published_date = Date.parse(@publish_date).year
+    current_year = Date.today.year
+
+    (current_year - published_date) > archive_years_constraint
   end
 end
