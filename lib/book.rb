@@ -2,7 +2,7 @@ require_relative 'item'
 require_relative 'author'
 
 class Book < Item
-  attr_reader :publisher, :cover_state
+  attr_reader :publisher, :cover_state, :title
 
   def initialize(title: nil, publish_date: nil,
                  publisher: nil, cover_state: nil)
@@ -25,6 +25,8 @@ class Book < Item
       'archived' => @archived
     }
   end
+
+  private
 
   def can_be_archived?
     return true if super || @cover_state == 'bad'

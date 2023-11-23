@@ -1,7 +1,7 @@
 require_relative '../helpers/generate_id'
 
 class Label
-  attr_reader :id, :title, :color
+  attr_reader :title, :color
 
   def initialize(title, color)
     @id = generate_id
