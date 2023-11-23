@@ -6,14 +6,14 @@ CREATE DATABASE catalog_manager;
 --!=>
 CREATE TABLE 
     label (
-        id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+        id UUID PRIMARY KEY,
         title VARCHAR(200),
         color VARCHAR(100)
     );
 --!=>
 CREATE TABLE
     book (
-        id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+        id UUID PRIMARY KEY,
         title VARCHAR(200),
         genre_id INT NOT NULL REFERENCES genre (id),
         author_id INT NOT NULL REFERENCES author (id),
@@ -29,7 +29,7 @@ CREATE TABLE
 -- *
 CREATE TABLE
     game (
-        id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+        id UUID PRIMARY KEY,
         title VARCHAR(200),
         genre_id INT NOT NULL REFERENCES genre (id),
         author_id INT NOT NULL REFERENCES author (id),
