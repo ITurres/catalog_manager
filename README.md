@@ -31,7 +31,8 @@
 
 # 📖 Catalog Manager <a name="about-project"></a>
 
-- 💎 Console app that helps you to keep a record of different types of things you own: books, music albums, and games.
+- 💎 Console app that helps you to keep a record of different types of things you own: books, music albums, and games. The app was built by referring to the below UML Diagram
+<p><img src="/assets/uml diagram.png" /></p>
 
 #### Learning objectives
 
@@ -49,7 +50,10 @@
   <ul>
     <li>
       <a href="https://www.ruby-lang.org/en/">
-        <img src="https://skillicons.dev/icons?i=ruby"/> Ruby
+        <img src="https://skillicons.dev/icons?i=ruby"/> 
+      </a>
+      <a href="https://www.ruby-lang.org/en/">
+        <img src="https://skillicons.dev/icons?i=postgres"/> 
       </a>
     </li>
   </ul>
@@ -123,9 +127,9 @@ ruby main.rb
 - Youtube: [Arturo Emanuel Guerra Iturres - Youtube Channel](https://www.youtube.com/channel/UC6GFUFHOtBS9mOuI8EJ6q4g)
 - Portfolio: [Arthur Iturres - Portfolio](https://iturres.github.io/iturres-reactive-portfolio/)
 
-👤 **Demes Amenesgia**
+👤 **Demes Ameneshoa**
 
-- GitHub: [@ITurres](https://github.com/demesameneshoa)
+- GitHub: [@demesameneshoa](https://github.com/demesameneshoa)
 - LinkedIn: [Demes Ameneshoa](https://www.linkedin.com/in/demesameneshoa/)
 - Angellist / Wellfound: [Demes Ameneshoa](https://wellfound.com/u/demesameneshoa)
 - Portfolio: [Demes Ameneshoa - Portfolio](https://demesameneshoa.github.io/Portfolio/)
@@ -138,13 +142,13 @@ ruby main.rb
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- [ ] Class Definitions.
-- [ ] Method implementations.
-- [ ] UI.
-- [ ] Preserve data and schema.
-- [ ] unit tests.
+- [x] Class Definitions.
+- [x] Method implementations.
+- [x] UI.
+- [x] Preserve data and schema.
+- [x] unit tests.
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+ <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ---
 
