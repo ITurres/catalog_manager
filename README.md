@@ -1,7 +1,8 @@
 <a name="readme-top"></a>
 
 <div align="center">
-    <h1><b>Catalog of Things</b></h1>
+    <img src="assets/catalog-manager-logo.png" alt="Catalog Manager Logo" width="800" height="auto">
+    <h1><b>Catalog Manager</b></h1>
 </div>
 
 ---
@@ -28,7 +29,7 @@
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 Catalog of Things <a name="about-project"></a>
+# 📖 Catalog Manager <a name="about-project"></a>
 
 - 💎 Console app that helps you to keep a record of different types of things you own: books, music albums, and games.
 
