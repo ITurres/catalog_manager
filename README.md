@@ -12,6 +12,8 @@
 # 📗 Table of Contents
 
 - [📖 About the Project](#about-project)
+  - [Learning objectives](#learning-objectives)
+  - [Project Demo](#project-demo)
   - [🛠 Built With](#built-with)
     - [Tech Stack](#tech-stack)
 - [💻 Getting Started](#getting-started)
@@ -34,6 +36,9 @@
 - 💎 In this project, we created a console app that will help you to keep a record of different types of things you own: books, music albums, and games. Everything is based on the UML class diagram presented below. The data is stored in JSON files but we also prepared a database with tables structure analogical to our program's class structure.
 
 <p><img src="/assets/uml diagram.png" /></p>
+
+#### Project Demo <a name="project-demo"></a>
+<a href="https://drive.google.com/file/d/1dECpkqXxtTnz2ho7CXrIv2YEIKQ7iD7k/view?usp=drive_link">Project Presentation Demo</a>
 
 #### Learning objectives
 
