@@ -1,12 +1,12 @@
 require 'date'
-require 'securerandom'
+require_relative '../helpers/generate_id'
 
 class Item
   attr_reader :id, :archived
   attr_accessor :genre, :author, :label, :publish_date
 
   def initialize(publish_date)
-    @id = SecureRandom.uuid
+    @id = generate_id
     @genre = nil
     @author = nil
     @label = nil
