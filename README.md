@@ -31,17 +31,27 @@
 
 # 📖 Catalog Manager <a name="about-project"></a>
 
-- 💎 Console app that helps you to keep a record of different types of things you own: books, music albums, and games. The app was built by referring to the below UML Diagram
+- 💎 In this project, we created a console app that will help you to keep a record of different types of things you own: books, music albums, and games. Everything is based on the UML class diagram presented below. The data is stored in JSON files but we also prepared a database with tables structure analogical to our program's class structure.
+
 <p><img src="/assets/uml diagram.png" /></p>
 
 #### Learning objectives
 
-- Use OOP to build a simple app.
+- Insert and query data in SQL.
+- Use primary key & foreign key mechanisms for joining tables.
+- Understand the different types of relationships between tables.
+- Use Ruby syntax for basic programming operations.
+- Apply Ruby best practices and language style guides in code.
+- Implement the SOLID principles of OOP.
 - Implement classes and objects in Ruby.
+- Understand the four main principles of OOP.
+- Implement encapsulation and inheritance with Ruby.
+- Create app from a UML class diagram.
+- Explain the difference between associations, aggregations, and composition in OOP.
 - Set up associations between classes and objects.
+- Store data in files.
 - Build interactive console apps.
-- Add basic UI to a program.
-- Run a program using the command line.
+- Recognize the value of making equal contributions to group projects to produce the best outcome.
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -103,12 +113,6 @@ Example commands:
 
 ```bash
  ruby main.rb
-```
-
-OR
-
-```bash
-ruby main.rb
 ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
