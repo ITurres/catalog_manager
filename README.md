@@ -62,7 +62,7 @@
       <a href="https://www.ruby-lang.org/en/">
         <img src="https://skillicons.dev/icons?i=ruby"/> 
       </a>
-      <a href="https://www.ruby-lang.org/en/">
+      <a href="https://www.postgresql.org/">
         <img src="https://skillicons.dev/icons?i=postgres"/> 
       </a>
     </li>
