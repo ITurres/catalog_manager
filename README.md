@@ -65,10 +65,12 @@
   <ul>
     <li>
       <a href="https://www.ruby-lang.org/en/">
-        <img src="https://skillicons.dev/icons?i=ruby"/> 
+        <img src="https://skillicons.dev/icons?i=ruby"/> Ruby
       </a>
+    </li>
+    <li>
       <a href="https://www.postgresql.org/">
-        <img src="https://skillicons.dev/icons?i=postgres"/> 
+        <img src="https://skillicons.dev/icons?i=postgres"/> PostgreSQL
       </a>
     </li>
   </ul>
@@ -116,7 +118,9 @@ Example commands:
 
 ### Usage
 
+Within the project folder
 ```bash
+ cd catalog_manager/
  ruby main.rb
 ```
 
@@ -154,8 +158,9 @@ Example commands:
 - [x] Class Definitions.
 - [x] Method implementations.
 - [x] UI.
-- [x] Preserve data and schema.
+- [x] Preserve data and create db schema.
 - [x] unit tests.
+- [ ] Preserve `authors`, `labels` and `genres` separated.
 
  <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
