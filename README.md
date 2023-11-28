@@ -99,21 +99,21 @@ Example commands:
 
 ```bash
   cd my-folder
-  git clone git@github.com:ITurres/catalog_of_things.git
+  git clone git@github.com:ITurres/catalog_manager.git
 ```
 
 - With HTTPS:
 
 ```bash
   cd my-folder
-  git clone https://github.com/ITurres/catalog_of_things/.git
+  git clone https://github.com/ITurres/catalog_manager/.git
 ```
 
 - With GitHub CLI:
 
 ```bash
   cd my-folder
-  gh repo clone ITurres/catalog_of_things
+  gh repo clone ITurres/catalog_manager
 ```
 
 ### Usage
@@ -172,7 +172,7 @@ Within the project folder
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](https://github.com/ITurres/catalog_of_things/issues).
+Feel free to check the [issues page](https://github.com/ITurres/catalog_manager/issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
